@@ -16,5 +16,6 @@ public class Abelha extends Actor
     {
         // Add your action code here.
         move(1);
+        
     }
 }
