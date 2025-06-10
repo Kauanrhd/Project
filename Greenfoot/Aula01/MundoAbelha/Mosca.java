@@ -1,13 +1,27 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Mosca here.
+ * Aqui é a Classe Mosca.
  * 
- * @author (Kauan) 
- * @version (03-06-2025)
+ * @author Richard Brosler
+ * @version 2025-06-03
  */
-public class Mosca extends Actor
+public class Mosca extends Inseto
 {
+    //fields
+    private int velocidade;
+    private int rotacao;
+    //constructor padrão
+    public Mosca(){
+        velocidade = 1;
+        rotacao = 0;
+    }
+    //constructor com parametros
+    public Mosca(int vel,int rot){
+        velocidade = vel;
+        rotacao = rot;
+        setRotation(rot);
+    }
     /**
      * Act - Método responsável pelas ações da mosca quando
      * os botões Act ou Run são pressionados.
@@ -19,7 +33,6 @@ public class Mosca extends Actor
         if (Greenfoot.getRandomNumber(100)<20){
             turn(45-Greenfoot.getRandomNumber(90));
         }
-        if (isAtEdge()){ //esta em um canto
-            turn(180);
+        verificarCanto();
     }
-}}
+}
