@@ -37,7 +37,7 @@ public class Abelha extends Actor
     public void act()
     {
         // Add your action code here.
-        move(1);
+        move(2);
         if (Greenfoot.isKeyDown("left")){
             turn(-5);
         }
@@ -48,6 +48,7 @@ public class Abelha extends Actor
         capturarMosca();
         serCapturadoPelaAranha();
         animarAbelha();
+        atualizarVidas();
     }
     /**
      * Método que verifica posição da Abelha.
@@ -99,7 +100,9 @@ public class Abelha extends Actor
         if (isTouching(Mosca.class)) {
             removeTouching(Mosca.class);
             Greenfoot.playSound("slurp.wav");
-            atualizarScore();
+            //Fazendo o casting para beeworld
+            ( (BeeWorld) getWorld() ).updateScore();
+            //atualizarScore();
             //Vai de 1 a 800
             int posX = Greenfoot.getRandomNumber(
                         getWorld().getWidth()) + 1;
@@ -142,12 +145,15 @@ public class Abelha extends Actor
     }
     
     public void atualizarScore(){
-        score += PONTOS; //score = score + PONTOS
-        getWorld().showText("Score: " + score, 100, 10);
+    //    score += PONTOS; //score = score + PONTOS
+    //    getWorld().showText("Score: " + score, 100, 10);
+    //*
     }
-    
-    public void animarAbelha (){
+     public void animarAbelha (){
         indice = (indice + 1) % 4;
-        setImage(imgs[indice]);
-    }
+       setImage(imgs[indice]);
+   }
+   public void atualizarVidas(){
+       getWorld().showText("Vidas: " + vidas, 700, 10);
+   }
 }
