@@ -13,7 +13,7 @@ public class Exercicio01 {
 		//Tratando para user que não sabe ler
 		if (!nome.contains(" ")) nome = nome + " ";
 		String priNome = nome.substring(0,nome.indexOf(" "));//Roberto
-		String priNome = nome.substring(nome.lastIndexOf(" "));
+		String ultNome = nome.substring(nome.lastIndexOf(" "));
 		System.out.println(priNome);
 		System.out.println(ultNome);
 		sc.close();
