@@ -1,14 +1,15 @@
 package br.com.senaisp.bauru.aula05;
 
+import java.util.Locale;
 import java.util.Scanner;
 
-import br.com.senaisp.bauru.aula03.Exercicio01;
+import br.com.senaisp.bauru.aula05.Exercio01;
 
 public class Exercio01 {
 
 	public static void main(String[] args) {
 		//Usando o scanner para ler um arquivo texto
-		Scanner sc = new Scanner(Exercicio01.class.getResourceAsStream("arquivo.txt"));
+		Scanner sc = new Scanner(Exercio01.class.getResourceAsStream("arquivo.txt"));
 		String linha = sc.nextLine(); //pegando cabeçalho
 		Scanner sca = new Scanner(linha);
 		sca.useDelimiter(";");
@@ -20,9 +21,16 @@ public class Exercio01 {
 		sca.close(); //fechando o scanner de apoio
 		while(sc.hasNextLine()) {
 			linha = sc.nextLine();
-			sca = new Scanner(linha);
-			sca.useDelimiter(";");
-			
+			sca = new Scanner(linha).useLocale(Locale.US);
+			sca.useDelimiter(";");//delimitador
+			//Imprimindo o nome
+			System.out.print(sca.next());//nome
+			//Imprimindo a idade
+			System.out.print(sca.nextInt() + "\t");//idade
+			//Imprimindo salario
+			System.out.println(sca.nextDouble());//Salario
+			//fechando o sanner de apoio
+			sc.close();
 		}
 	}
 
