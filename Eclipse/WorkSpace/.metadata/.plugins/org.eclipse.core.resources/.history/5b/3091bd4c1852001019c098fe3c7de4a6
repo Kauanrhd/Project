@@ -1,0 +1,21 @@
+package br.com.senaisp.bauru.aula07;
+
+import java.awt.Graphics;
+
+public class Retangulo extends Desenho {
+	private inn comprimento;
+	private int largura;
+	private static final long serialVersionUID = 1L;
+	
+	publkic Retangulo(int posX, int posY,int com, int larg, Color cor);
+	  super(posX, posY, cor);
+	  comprimento = comp;
+	  largura = larg;
+
+	@Override
+	protected void desenharForma(Graphics g) {
+		// TODO Auto-generated method stub
+
+	}
+
+}}
